@@ -13,6 +13,8 @@
 | “增加新 pass 的离线预编译请求” | metallic-shader-warmup | MSVC/CMake/Slang 与当前 runtime 请求；缓存身份核对、完整预热结果及 cache-miss 路径检查 |
 | “CreateIOBatch 每帧 malloc，按这个调用栈修复” | vividrp-allocation-diagnostics | VividRP、实际 Unity 版本、Profiler；所有权分析、局部测量与 Unity 验证状态 |
 | “RenderGraph 菜单节点重复或丢失” | vividrp-rendergraph-editor | VividRP 与实际 GraphToolkit 实现；注册来源、唯一性/覆盖测试及菜单验证状态 |
+| “用 PIX 捕获当前相机的 HZB pass，检查 Dispatch 和资源” | vivid-pix-workflow | 已注入 D3D12 Editor、Unity CLI、PIX/native 工具；diagnosis、retained capture 和验证证据 |
+| “分析已有 .wpix 中这个事件，不重新捕获” | vivid-pix-workflow | 匹配的身份 JSON、外部 analyzer、PIX/GPU；有界定向查询与 hash 校验 |
 
 ## 组合工作流
 
@@ -29,3 +31,11 @@
 ## 交付方式
 
 报告所处理的 workload/版本、证据路径、改动、通过/失败/未运行的验证。注明证据范围：静态编译、替身测试、单路径采样、真实 GPU、Unity Editor 或 Player。缺失运行环境时留下具体的最小复测步骤。
+
+## PIX 调用示例
+
+> 使用 $vivid-pix-workflow，目标 package 为 E:/VividRP_Reborn/Packages/VividRP，Unity 工程为实际使用该包的工程。先 preflight 发现相机和精确 marker，再针对指定 pass 生成带资源证据的诊断。
+
+> 阅读 skills/vivid-pix-workflow/SKILL.md，分析给定 diagnosis.json 对应的 retained .wpix，仅追加该 capture 的 accessed_resources 查询，不重新捕获。
+
+先从 [skill 入口](../skills/vivid-pix-workflow/SKILL.md) 定位目标工程。`diagnose` 会新建 capture；已有 capture 的查询使用独立 analyzer。安装此 skill 时避免与 VividRP 项目内同名 skill 同时成为可发现副本。

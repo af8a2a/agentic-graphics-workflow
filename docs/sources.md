@@ -23,3 +23,9 @@
 ## 核验范围
 
 本次检查 skill frontmatter、相对文档链接、收录副本一致性及文档差异。未启动 GPU 实验、完整 shader warmup、Unity Editor/tests 或性能复测。历史工作记录提炼的是操作方法，不是当前项目健康状态或性能结论。
+
+## PIX M3 补充收录（2026-09-28）
+
+`vivid-pix-workflow` 适配自 VividRP 项目内 `.agents/skills/vivid-pix-workflow`，核对了最新 M3 runner、PIX 接口指南、native 指南与实机验收报告。保留名称和 UI 元数据，修正跨仓库路径定位，补充旧 capture 的分析与恢复。执行实现继续由 VividRP 维护。
+
+本次确认 package 自身为嵌套 Git 仓库，HEAD 为 `917c9c2399d6cd6a35bc3dd6b47ada79045de220`；前文 VividRP `6fbde38...` 是宿主工程 HEAD，不能作为 package 提交身份。来源文件哈希与验证范围见 [PIX 来源映射](../skills/vivid-pix-workflow/references/source-map.md)。本次执行 runner `--help` 并校验文档，未重跑实机验收。

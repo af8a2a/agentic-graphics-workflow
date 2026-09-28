@@ -12,6 +12,7 @@
 | [metallic-shader-warmup](skills/metallic-shader-warmup/SKILL.md) | 可选 SPIR-V 缓存预热、请求身份与完整目标验证 | 工作流提炼 |
 | [vividrp-allocation-diagnostics](skills/vividrp-allocation-diagnostics/SKILL.md) | GC / native 分配、VT batch 生命周期、初始 JIT/Burst 开销 | 工作流提炼 |
 | [vividrp-rendergraph-editor](skills/vividrp-rendergraph-editor/SKILL.md) | 节点重复/缺失、GraphToolkit 注册与代码生成验证 | 工作流提炼 |
+| [vivid-pix-workflow](skills/vivid-pix-workflow/SKILL.md) | PIX 早期注入、相机/pass 捕获、外部分析与证据恢复 | 最新 M3 项目 skill 适配 |
 
 ## 使用
 
